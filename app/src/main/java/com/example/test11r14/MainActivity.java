@@ -1,5 +1,10 @@
 package com.example.test11r14;
-
+/**
+ * Richard
+ *API 24
+ *16/03/2026
+ * התוכנה אזות מציגה קישורים בgoogle
+ */
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,18 +24,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        eAd = findViewById(R.id.etAddress); // исправлено
+        eAd = findViewById(R.id.etAddress);
         btnGo = findViewById(R.id.btnGo);
         wV = findViewById(R.id.wV);
 
         wV.setWebViewClient(new WebViewClient());
+
         wV.getSettings().setJavaScriptEnabled(true);
 
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String url = eAd.getText().toString();
+                String url = eAd.getText().toString().trim();
 
                 if (!url.startsWith("http://") && !url.startsWith("https://")) {
                     url = "https://" + url;
@@ -38,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
                 wV.loadUrl(url);
             }
+            /**
+             * קשי אתה לוחץ אז זה מרה תוכן של הקישור
+             * param סורק קישור
+             * return מחזיר תוכן של הקישור
+             */
         });
     }
 }
